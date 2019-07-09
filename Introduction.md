@@ -54,4 +54,4 @@ type
     postalContactInfo: PostalContactInfo
 ```
 
-Next: [Designing with Nim types: Single case union types](Single case union types.md)
+Next: [Designing with Nim types: Single case union types](Single_case_union_types.md)
