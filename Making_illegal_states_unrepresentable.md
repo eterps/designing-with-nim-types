@@ -5,7 +5,7 @@ If Nim provides a better (or alternative) way to implement these techniques, [ad
 
 ## Encoding business logic in types
 
-## Making illegal states unrepresentable
+### Making illegal states unrepresentable
 
 WORK IN PROGRESS:
 
