@@ -7,9 +7,15 @@ If Nim provides a better (or alternative) way to implement these techniques, [ad
 
 ### Making illegal states unrepresentable
 
-WORK IN PROGRESS:
+This Nim translation uses the `variant` macro from a library called patty [to create a union type](https://github.com/andreaferretti/patty#constructing-variant-objects).
+
+Also note the `==` procedure declarations, `distinct` types in Nim do not have the procedures of its base type available to them.
+[See here](https://nim-by-example.github.io/types/distinct/) for an explanation.
+In this case they are needed to compare the individual cases of the variant type.
 
 ```nim
+import options, patty
+
 type
   PersonalName = object
     firstName: string
@@ -35,6 +41,10 @@ type
   PostalContactInfo = object
     address: PostalAddress
     isAddressValid: bool
+
+proc `==` *(a, b: EmailAddress): bool {.borrow.}
+proc `==` *(a, b: ZipCode): bool {.borrow.}
+proc `==` *(a, b: StateCode): bool {.borrow.}
 
 variant ContactInfo:
   EmailOnly(email: EmailContactInfo)
